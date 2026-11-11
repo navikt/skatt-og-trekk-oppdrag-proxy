@@ -1,10 +1,10 @@
-package no.nav.sokos.prosjektnavn.metrics
+package no.nav.sokos.skatt.trekk.oppdrag.proxy.metrics
 
 import io.micrometer.prometheusmetrics.PrometheusConfig
 import io.micrometer.prometheusmetrics.PrometheusMeterRegistry
 import io.prometheus.metrics.core.metrics.Counter
 
-private const val METRICS_NAMESPACE = "sokos_ktor_template"
+private const val METRICS_NAMESPACE = "skatt_trekk_oppdrag_proxy"
 
 private const val EXAMPLE_COUNTER = "${METRICS_NAMESPACE}_example_counter"
 

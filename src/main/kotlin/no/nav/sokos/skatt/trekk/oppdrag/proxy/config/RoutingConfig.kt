@@ -1,11 +1,11 @@
-package no.nav.sokos.prosjektnavn.config
+package no.nav.sokos.skatt.trekk.oppdrag.proxy.config
 
 import io.ktor.server.application.Application
 import io.ktor.server.auth.authenticate
 import io.ktor.server.routing.routing
 
-import no.nav.sokos.prosjektnavn.api.dummyApi
-import no.nav.sokos.prosjektnavn.api.dummySwaggerApi
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.api.dummyApi
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.api.dummySwaggerApi
 
 fun Application.routingConfig(applicationState: ApplicationState) {
     routing {

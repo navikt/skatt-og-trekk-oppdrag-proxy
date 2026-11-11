@@ -1,4 +1,4 @@
-# AGENTS.md — sokos-ktor-template
+# AGENTS.md — skatt-trekk-oppdrag-proxy
 
 Instruksjonsfil for GitHub Copilot coding agent og andre AI-agenter som jobber i dette repoet.
 
@@ -29,7 +29,7 @@ Brukes som utgangspunkt for nye tjenester ved å kjøre `./setupTemplate.sh`.
 ## Prosjektstruktur
 
 ```
-src/main/kotlin/no/nav/sokos/prosjektnavn/
+src/main/kotlin/no/nav/sokos/skatt.trekk.oppdrag.proxy/
 ├── Application.kt
 ├── api/                    # Ktor-routes
 │   ├── DummyApi.kt
@@ -53,9 +53,9 @@ src/main/resources/
 ├── application-prod.conf   # Produksjon
 ├── application-test.conf   # Brukes i tester (include base + override profile)
 └── openapi/
-    └── sokos-ktor-template-v1-swagger.yaml  # OpenAPI-spec (brukes av SwaggerApi + RestAssured-tester)
+    └── skatt-trekk-oppdrag-proxy-v1-swagger.yaml  # OpenAPI-spec (brukes av SwaggerApi + RestAssured-tester)
 
-src/test/kotlin/no/nav/sokos/prosjektnavn/
+src/test/kotlin/no/nav/sokos/skatt.trekk.oppdrag.proxy/
 ├── api/                    # API-tester (FunSpec + embeddedServer + RestAssured + OpenApiValidationFilter)
 ├── security/               # Auth-tester (FunSpec + testApplication + withMockOAuth2Server)
 ├── service/unit/           # Enhetstester — legg til ved behov

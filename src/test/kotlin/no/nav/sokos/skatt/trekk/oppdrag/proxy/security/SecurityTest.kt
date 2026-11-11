@@ -1,4 +1,4 @@
-package no.nav.sokos.prosjektnavn.security
+package no.nav.sokos.skatt.trekk.oppdrag.proxy.security
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
@@ -17,14 +17,14 @@ import io.mockk.mockk
 import no.nav.security.mock.oauth2.MockOAuth2Server
 import no.nav.security.mock.oauth2.token.DefaultOAuth2TokenCallback
 import no.nav.security.mock.oauth2.withMockOAuth2Server
-import no.nav.sokos.prosjektnavn.api.API_BASE_PATH
-import no.nav.sokos.prosjektnavn.api.dummyApi
-import no.nav.sokos.prosjektnavn.config.AUTHENTICATION_NAME
-import no.nav.sokos.prosjektnavn.config.PropertiesConfig
-import no.nav.sokos.prosjektnavn.config.commonConfig
-import no.nav.sokos.prosjektnavn.config.securityConfig
-import no.nav.sokos.prosjektnavn.domain.DummyDomain
-import no.nav.sokos.prosjektnavn.service.DummyService
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.api.API_BASE_PATH
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.api.dummyApi
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.AUTHENTICATION_NAME
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.PropertiesConfig
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.commonConfig
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.securityConfig
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.domain.DummyDomain
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.service.DummyService
 
 private val dummyService: DummyService = mockk()
 

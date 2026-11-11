@@ -34,7 +34,7 @@ Swagger UI eksponeres via `swaggerUI()` på en uautentisert route. OpenAPI-spesi
 fun Routing.dummySwaggerApi() {
     swaggerUI(
         path = "api/v1/docs",
-        swaggerFile = "openapi/sokos-ktor-template-v1-swagger.yaml",
+        swaggerFile = "openapi/skatt-trekk-oppdrag-proxy-v1-swagger.yaml",
     )
 }
 ```

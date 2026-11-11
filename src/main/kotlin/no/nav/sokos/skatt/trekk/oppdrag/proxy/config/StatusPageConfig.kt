@@ -1,4 +1,4 @@
-package no.nav.sokos.prosjektnavn.config
+package no.nav.sokos.skatt.trekk.oppdrag.proxy.config
 
 import kotlin.time.Clock
 import kotlin.time.ExperimentalTime

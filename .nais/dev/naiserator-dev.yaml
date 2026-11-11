@@ -1,7 +1,7 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: sokos-ktor-template
+  name: skatt-trekk-oppdrag-proxy
   namespace: beregningsplattform
   labels:
     team: beregningsplattform
@@ -30,7 +30,7 @@ spec:
       cpu: 100m
       memory: 512Mi
   ingresses:
-    - https://sokos-ktor-template.intern.dev.nav.no
+    - https://skatt-trekk-oppdrag-proxy.intern.dev.nav.no
   prometheus:
     enabled: true
     path: /internal/metrics

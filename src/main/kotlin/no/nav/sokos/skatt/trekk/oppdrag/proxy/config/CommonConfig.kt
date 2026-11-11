@@ -1,4 +1,4 @@
-package no.nav.sokos.prosjektnavn.config
+package no.nav.sokos.skatt.trekk.oppdrag.proxy.config
 
 import kotlinx.serialization.json.Json
 
@@ -25,7 +25,7 @@ import org.slf4j.Marker
 import org.slf4j.MarkerFactory
 import org.slf4j.event.Level
 
-import no.nav.sokos.prosjektnavn.metrics.Metrics
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.metrics.Metrics
 
 val TEAM_LOGS_MARKER: Marker? = MarkerFactory.getMarker("TEAM_LOGS")
 
@@ -41,7 +41,7 @@ val jsonConfig =
 
 fun Application.commonConfig() {
     install(CallLogging) {
-        logger = no.nav.sokos.prosjektnavn.config.logger
+        logger = no.nav.sokos.skatt.trekk.oppdrag.proxy.config.logger
         level = Level.INFO
         filter { call -> call.request.path().startsWith("/api") }
         disableDefaultColors()

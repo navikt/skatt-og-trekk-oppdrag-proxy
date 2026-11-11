@@ -1,4 +1,4 @@
-# sokos-ktor-template
+# skatt-trekk-oppdrag-proxy
 
 Kan brukes som utgangspunkt for å opprette nye Ktor-backend applikasjoner for Team Motta og Beregne
 
@@ -9,7 +9,7 @@ Kan brukes som utgangspunkt for å opprette nye Ktor-backend applikasjoner for T
    ```
    ./setupTemplate.sh
    ```
-3. Fyll inn prosjektnavn (sokos-foo-bar) og artifaktnavn (foo.bar)
+3. Fyll inn skatt.trekk.oppdrag.proxy (sokos-foo-bar) og artifaktnavn (foo.bar)
 
 ## Workflows
 
@@ -100,7 +100,7 @@ Legg ved skissediagram for hvordan arkitekturen er bygget
 # 5. Deployment
 
 Distribusjon av tjenesten er gjort med bruk av Github Actions.
-[sokos-ktor-template CI / CD](https://github.com/navikt/sokos-ktor-template/actions)
+[skatt-trekk-oppdrag-proxy CI / CD](https://github.com/navikt/skatt-trekk-oppdrag-proxy/actions)
 
 Push/merge til main branche vil teste, bygge og deploye til produksjonsmiljø og testmiljø.
 
@@ -123,16 +123,16 @@ For dev-gcp:
 
 ```shell script
 kubectl config use-context dev-gcp
-kubectl get pods -n okonomi | grep sokos-ktor-template
-kubectl logs -f sokos-ktor-template-<POD-ID> --namespace okonomi -c sokos-ktor-template
+kubectl get pods -n okonomi | grep skatt-trekk-oppdrag-proxy
+kubectl logs -f skatt-trekk-oppdrag-proxy-<POD-ID> --namespace okonomi -c skatt-trekk-oppdrag-proxy
 ```
 
 For prod-gcp:
 
 ```shell script
 kubectl config use-context prod-gcp
-kubectl get pods -n okonomi | grep sokos-ktor-template
-kubectl logs -f sokos-ktor-template-<POD-ID> --namespace okonomi -c sokos-ktor-template
+kubectl get pods -n okonomi | grep skatt-trekk-oppdrag-proxy
+kubectl logs -f skatt-trekk-oppdrag-proxy-<POD-ID> --namespace okonomi -c skatt-trekk-oppdrag-proxy
 ```
 
 ### Alarmer

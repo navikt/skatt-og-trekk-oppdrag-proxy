@@ -89,7 +89,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("no.nav.sokos.prosjektnavn.ApplicationKt")
+    mainClass.set("no.nav.sokos.skatt.trekk.oppdrag.proxy.ApplicationKt")
 }
 
 sourceSets {

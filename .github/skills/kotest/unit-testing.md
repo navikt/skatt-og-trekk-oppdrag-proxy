@@ -10,7 +10,7 @@ internal class PropertiesConfigTest : FunSpec({
     test("applicationProperties skal lastes fra application-test.conf") {
         val props = PropertiesConfig.applicationProperties
         props.profile shouldBe Profile.TEST
-        props.appName shouldBe "sokos-ktor-template"
+        props.appName shouldBe "skatt-trekk-oppdrag-proxy"
         props.namespace shouldBe "okonomi"
         props.isTest shouldBe true
         props.isLocal shouldBe false
@@ -75,6 +75,6 @@ import io.kotest.matchers.shouldBe
 import io.kotest.assertions.throwables.shouldThrow
 import io.mockk.every
 import io.mockk.mockk
-import no.nav.sokos.prosjektnavn.config.Profile
-import no.nav.sokos.prosjektnavn.config.PropertiesConfig
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.Profile
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.PropertiesConfig
 ```

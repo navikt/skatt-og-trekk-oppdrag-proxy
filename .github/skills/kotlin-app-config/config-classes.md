@@ -50,7 +50,7 @@ Register each new section as a `by lazy` property in `PropertiesConfig`.
 `PropertiesConfig` lastes **én gang** for hele testsuiten via Kotest `AbstractProjectConfig` — ingen manuell `beforeSpec` nødvendig:
 
 ```kotlin
-// src/test/kotlin/no/nav/sokos/prosjektnavn/ProjectConfig.kt
+// src/test/kotlin/no/nav/sokos/skatt.trekk.oppdrag.proxy/ProjectConfig.kt
 private const val APPLICATION_TEST_CONFIG = "application-test.conf"
 
 class ProjectConfig : AbstractProjectConfig() {

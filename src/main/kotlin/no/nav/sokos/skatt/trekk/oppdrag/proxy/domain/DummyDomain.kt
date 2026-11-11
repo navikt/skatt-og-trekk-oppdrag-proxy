@@ -1,4 +1,4 @@
-package no.nav.sokos.prosjektnavn.domain
+package no.nav.sokos.skatt.trekk.oppdrag.proxy.domain
 
 import kotlinx.serialization.Serializable
 

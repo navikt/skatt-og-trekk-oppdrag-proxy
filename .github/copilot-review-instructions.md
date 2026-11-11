@@ -2,7 +2,7 @@
 applyTo: "**"
 ---
 
-# Copilot Code Review — sokos-ktor-template
+# Copilot Code Review — skatt-trekk-oppdrag-proxy
 
 Instruksjoner for hva Copilot skal fokusere på ved gjennomgang av pull requests.
 

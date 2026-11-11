@@ -1,9 +1,9 @@
-package no.nav.sokos.prosjektnavn
+package no.nav.sokos.skatt.trekk.oppdrag.proxy
 
 import io.kotest.core.config.AbstractProjectConfig
 import io.ktor.server.config.ApplicationConfig
 
-import no.nav.sokos.prosjektnavn.config.PropertiesConfig
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.PropertiesConfig
 
 private const val APPLICATION_TEST_CONFIG = "application-test.conf"
 

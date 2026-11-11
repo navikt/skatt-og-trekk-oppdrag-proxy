@@ -2,7 +2,7 @@
 applyTo: "**"
 ---
 
-# sokos-ktor-template
+# skatt-trekk-oppdrag-proxy
 
 Kotlin/Ktor backend-template for Team Motta og Beregne (`okonomi`-namespace på Nais/GCP).
 Stack: Ktor · Azure AD JWT · Micrometer/Prometheus · Kotest · Gradle Kotlin DSL · JVM 25

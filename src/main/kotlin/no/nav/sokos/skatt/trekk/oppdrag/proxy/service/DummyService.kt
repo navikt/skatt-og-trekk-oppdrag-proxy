@@ -1,10 +1,10 @@
-package no.nav.sokos.prosjektnavn.service
+package no.nav.sokos.skatt.trekk.oppdrag.proxy.service
 
 import mu.KotlinLogging
 
-import no.nav.sokos.prosjektnavn.config.TEAM_LOGS_MARKER
-import no.nav.sokos.prosjektnavn.domain.DummyDomain
-import no.nav.sokos.prosjektnavn.metrics.Metrics
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.TEAM_LOGS_MARKER
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.domain.DummyDomain
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.metrics.Metrics
 
 private val logger = KotlinLogging.logger {}
 

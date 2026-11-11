@@ -1,4 +1,4 @@
-package no.nav.sokos.prosjektnavn.api
+package no.nav.sokos.skatt.trekk.oppdrag.proxy.api
 
 import kotlin.time.Instant
 import kotlinx.serialization.json.Json
@@ -19,16 +19,16 @@ import io.mockk.every
 import io.mockk.mockk
 import io.restassured.RestAssured
 
-import no.nav.sokos.prosjektnavn.config.ApiError
-import no.nav.sokos.prosjektnavn.config.commonConfig
-import no.nav.sokos.prosjektnavn.domain.DummyDomain
-import no.nav.sokos.prosjektnavn.service.DummyService
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.ApiError
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.commonConfig
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.domain.DummyDomain
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.service.DummyService
 
 private const val PORT = 9091
 
 private lateinit var server: EmbeddedServer<NettyApplicationEngine, NettyApplicationEngine.Configuration>
 
-private val validationFilter = OpenApiValidationFilter("openapi/sokos-ktor-template-v1-swagger.yaml")
+private val validationFilter = OpenApiValidationFilter("openapi/skatt-trekk-oppdrag-proxy-v1-swagger.yaml")
 private val dummyService = mockk<DummyService>()
 
 internal class DummyApiTest :

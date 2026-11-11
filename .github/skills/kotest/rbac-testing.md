@@ -312,8 +312,8 @@ import io.mockk.mockk
 import no.nav.security.mock.oauth2.MockOAuth2Server
 import no.nav.security.mock.oauth2.token.DefaultOAuth2TokenCallback
 import no.nav.security.mock.oauth2.withMockOAuth2Server
-import no.nav.sokos.prosjektnavn.config.AzureAdProperties
-import no.nav.sokos.prosjektnavn.config.PropertiesConfig
-import no.nav.sokos.prosjektnavn.config.commonConfig
-import no.nav.sokos.prosjektnavn.config.securityConfig
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.AzureAdProperties
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.PropertiesConfig
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.commonConfig
+import no.nav.sokos.skatt.trekk.oppdrag.proxy.config.securityConfig
 ```

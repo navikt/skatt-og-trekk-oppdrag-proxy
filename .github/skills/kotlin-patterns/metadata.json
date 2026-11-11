@@ -17,7 +17,7 @@
 		},
 		{
 			"prompt": "Hvordan setter jeg opp Gradle med ktlint og kover?",
-			"scenario": "Gradle Kotlin DSL-konfigurasjon for sokos-ktor-template"
+			"scenario": "Gradle Kotlin DSL-konfigurasjon for skatt-trekk-oppdrag-proxy"
 		}
 	]
 }
