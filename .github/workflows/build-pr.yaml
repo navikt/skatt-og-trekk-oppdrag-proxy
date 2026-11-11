@@ -1,0 +1,30 @@
+name: Build & test PR
+
+on:
+  pull_request:
+    paths-ignore:
+      - '**.md'
+      - 'LICENCE'
+      - 'CODEOWNERS'
+      - '.gitignore'
+      - '.editorconfig'
+      - '.scripts'
+      - 'dokumentasjon/**'
+      - '.github/workflows/codeql-scan.yaml'
+      - '.github/workflows/deploy.yaml'
+      - '.github/workflows/digestabot-automerge.yaml'
+      - '.github/workflows/digestabot-update.yaml'
+      - '.github/workflows/manual-deploy.yaml'
+      - '.github/dependabot.yaml'
+      - '.github/instructions/**'
+      - '.github/skills/**'
+      - '.nais/**'
+
+env:
+  TZ: Europe/Oslo
+
+jobs:
+  build-and-test:
+    permissions:
+      contents: read
+    uses: navikt/beregningsplattform-gha-workflows/.github/workflows/gradle-build-test-app.yaml@f73c3476dd098d2530c777a60576c7b0b941b3a6 # ratchet:navikt/beregningsplattform-gha-workflows/.github/workflows/gradle-build-test-app.yaml@v1.1.1
