@@ -2,7 +2,7 @@
 applyTo: "**"
 ---
 
-# skatt-trekk-oppdrag-proxy
+# skatt-og-trekk-oppdrag-proxy
 
 Kotlin/Ktor backend-template for Team Skatt og Trekk (`skatt-og-trekk`-namespace på nais/gcp).
 Stack: Ktor · Azure AD JWT · Micrometer/Prometheus · Kotest · Gradle Kotlin DSL · JVM 25

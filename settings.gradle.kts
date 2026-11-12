@@ -1,1 +1,1 @@
-rootProject.name = "skatt-trekk-oppdrag-proxy"
+rootProject.name = "skatt-og-trekk-oppdrag-proxy"

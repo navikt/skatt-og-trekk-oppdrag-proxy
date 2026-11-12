@@ -10,7 +10,7 @@ internal class PropertiesConfigTest : FunSpec({
     test("applicationProperties skal lastes fra application-test.conf") {
         val props = PropertiesConfig.applicationProperties
         props.profile shouldBe Profile.TEST
-        props.appName shouldBe "skatt-trekk-oppdrag-proxy"
+        props.appName shouldBe "skatt-og-trekk-oppdrag-proxy"
         props.namespace shouldBe "skatt-og-trekk"
         props.isTest shouldBe true
         props.isLocal shouldBe false

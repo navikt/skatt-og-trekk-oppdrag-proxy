@@ -20,7 +20,7 @@ Idiomatic Kotlin patterns and best practices for building robust, efficient, and
 - [core-patterns.md](core-patterns.md) — null safety, immutability, expression bodies, scope functions
 - [type-modeling.md](type-modeling.md) — sealed types, extensions, delegation
 - [coroutines.md](coroutines.md) — structured concurrency, Flow, cancellation
-- [gradle-build-configuration.md](gradle-build-configuration.md) — project Gradle setup (skatt-trekk-oppdrag-proxy)
+- [gradle-build-configuration.md](gradle-build-configuration.md) — project Gradle setup (skatt-og-trekk-oppdrag-proxy)
 - [error-handling.md](error-handling.md) — error patterns, collection operations, anti-patterns
 
 ## Core Principles

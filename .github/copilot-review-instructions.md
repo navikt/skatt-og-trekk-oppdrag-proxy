@@ -2,7 +2,7 @@
 applyTo: "**"
 ---
 
-# Copilot Code Review — skatt-trekk-oppdrag-proxy
+# Copilot Code Review — skatt-og-trekk-oppdrag-proxy
 
 Instruksjoner for hva Copilot skal fokusere på ved gjennomgang av pull requests.
 

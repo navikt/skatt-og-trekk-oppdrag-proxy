@@ -1,4 +1,4 @@
-# skatt-trekk-oppdrag-proxy
+# skatt-og-trekk-oppdrag-proxy
 
 Kan brukes som utgangspunkt for å opprette nye Ktor-backend applikasjoner for Team Skatt og Trekk
 
@@ -100,7 +100,7 @@ Legg ved skissediagram for hvordan arkitekturen er bygget
 # 5. Deployment
 
 Distribusjon av tjenesten er gjort med bruk av Github Actions.
-[skatt-trekk-oppdrag-proxy CI / CD](https://github.com/navikt/skatt-trekk-oppdrag-proxy/actions)
+[skatt-og-trekk-oppdrag-proxy CI / CD](https://github.com/navikt/skatt-og-trekk-oppdrag-proxy/actions)
 
 Push/merge til main branche vil teste, bygge og deploye til produksjonsmiljø og testmiljø.
 
@@ -123,16 +123,16 @@ For dev-gcp:
 
 ```shell script
 kubectl config use-context dev-gcp
-kubectl get pods -n skatt-og-trekk | grep skatt-trekk-oppdrag-proxy
-kubectl logs -f skatt-trekk-oppdrag-proxy-<POD-ID> --namespace skatt-og-trekk -c skatt-trekk-oppdrag-proxy
+kubectl get pods -n skatt-og-trekk | grep skatt-og-trekk-oppdrag-proxy
+kubectl logs -f skatt-og-trekk-oppdrag-proxy-<POD-ID> --namespace skatt-og-trekk -c skatt-og-trekk-oppdrag-proxy
 ```
 
 For prod-gcp:
 
 ```shell script
 kubectl config use-context prod-gcp
-kubectl get pods -n skatt-og-trekk | grep skatt-trekk-oppdrag-proxy
-kubectl logs -f skatt-trekk-oppdrag-proxy-<POD-ID> --namespace skatt-og-trekk -c skatt-trekk-oppdrag-proxy
+kubectl get pods -n skatt-og-trekk | grep skatt-og-trekk-oppdrag-proxy
+kubectl logs -f skatt-og-trekk-oppdrag-proxy-<POD-ID> --namespace skatt-og-trekk -c skatt-og-trekk-oppdrag-proxy
 ```
 
 ### Alarmer

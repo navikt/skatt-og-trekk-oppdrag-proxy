@@ -28,7 +28,7 @@ private const val PORT = 9091
 
 private lateinit var server: EmbeddedServer<NettyApplicationEngine, NettyApplicationEngine.Configuration>
 
-private val validationFilter = OpenApiValidationFilter("openapi/skatt-trekk-oppdrag-proxy-v1-swagger.yaml")
+private val validationFilter = OpenApiValidationFilter("openapi/skatt-og-trekk-oppdrag-proxy-v1-swagger.yaml")
 private val dummyService = mockk<DummyService>()
 
 internal class DummyApiTest :

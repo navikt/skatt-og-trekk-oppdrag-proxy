@@ -3,7 +3,7 @@ name: kotest
 description: "Skriv og endre tester for Ktor-tjenester med Kotest FunSpec, MockK og mock-oauth2-server. Bruk for sikkerhetstester (testApplication + JWT), API-tester (embeddedServer + RestAssured + OpenAPI-validering) og RBAC-testing. Aksepterer spørsmål på norsk og engelsk. (Tester, Kotest, FunSpec, BehaviorSpec, MockK, testApplication, RestAssured)"
 ---
 
-# Kotest — testmønstre for skatt-trekk-oppdrag-proxy
+# Kotest — testmønstre for skatt-og-trekk-oppdrag-proxy
 
 Bruk denne skillen når du skal skrive tester for Ktor-tjenester i dette prosjektet.
 
@@ -58,7 +58,7 @@ Bruk ekte Netty-server med RestAssured og `OpenApiValidationFilter` for å verif
 ```kotlin
 private const val PORT = 9091
 private lateinit var server: EmbeddedServer<NettyApplicationEngine, NettyApplicationEngine.Configuration>
-private val validationFilter = OpenApiValidationFilter("openapi/skatt-trekk-oppdrag-proxy-v1-swagger.yaml")
+private val validationFilter = OpenApiValidationFilter("openapi/skatt-og-trekk-oppdrag-proxy-v1-swagger.yaml")
 private val dummyService = mockk<DummyService>()
 
 internal class DummyApiTest : FunSpec({

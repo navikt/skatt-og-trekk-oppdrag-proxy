@@ -1,7 +1,7 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: skatt-trekk-oppdrag-proxy
+  name: skatt-og-trekk-oppdrag-proxy
   namespace: skatt-og-trekk
   labels:
     team: skatt-og-trekk
@@ -30,7 +30,7 @@ spec:
       cpu: 100m
       memory: 512Mi
   ingresses:
-    - https://skatt-trekk-oppdrag-proxy.intern.dev.nav.no
+    - https://skatt-og-trekk-oppdrag-proxy.intern.dev.nav.no
   prometheus:
     enabled: true
     path: /internal/metrics
