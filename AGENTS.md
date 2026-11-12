@@ -4,7 +4,7 @@ Instruksjonsfil for GitHub Copilot coding agent og andre AI-agenter som jobber i
 
 ## Prosjektoversikt
 
-Kotlin/Ktor backend-template for Team Motta og Beregne (namespace: `okonomi`).
+Kotlin/Ktor backend-template for Team Skatt og Trekk (namespace: `skatt-og-trekk`).
 Brukes som utgangspunkt for nye tjenester ved å kjøre `./setupTemplate.sh`.
 
 - **Stack**: Kotlin + Ktor + Nais/GCP · JVM 25

@@ -104,7 +104,7 @@ accessPolicy:
 `getCallingSystem()` extracts the app name from `azp_name`/`client_id` and strips the cluster/namespace prefix:
 
 ```
-"dev-gcp:okonomi:my-calling-app" → "my-calling-app"
+"dev-gcp:skatt-og-trekk:my-calling-app" → "my-calling-app"
 ```
 
 Always log `navIdent` or `callingSystem` — never fnr/PII.

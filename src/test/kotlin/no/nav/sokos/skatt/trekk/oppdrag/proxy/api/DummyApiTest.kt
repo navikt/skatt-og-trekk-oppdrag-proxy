@@ -43,7 +43,7 @@ internal class DummyApiTest :
         }
 
         test("GET /hello returnerer 200 OK med DummyDomain") {
-            val expected = DummyDomain("This is a template for Team Motta og Beregne")
+            val expected = DummyDomain("This is a template for Team Skatt og Trekk")
             every { dummyService.sayHello() } returns expected
 
             val response =

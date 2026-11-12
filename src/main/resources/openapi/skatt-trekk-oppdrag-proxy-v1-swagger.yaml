@@ -2,10 +2,10 @@ openapi: 3.0.1
 info:
   version: 1.0.0
   title: Sokos Ktor Template API
-  description: Mal-tjeneste for Team Motta og Beregne — brukes som utgangspunkt for nye Ktor-tjenester
+  description: Mal-tjeneste for Team Skatt og Trekk — brukes som utgangspunkt for nye Ktor-tjenester
   contact:
-    name: Team Motta og Beregne
-    email: okonomi@nav.no
+    name: Team Skatt og Trekk
+    email: skatt-og-trekk@nav.no
     url: https://nav-it.slack.com/archives/CKZADNFBP
 
 tags:
@@ -52,7 +52,7 @@ components:
       properties:
         message:
           type: string
-          example: "This is a template for Team Motta og Beregne"
+          example: "This is a template for Team Skatt og Trekk"
           description: Melding fra tjenesten
 
     ApiError:

@@ -1,6 +1,6 @@
 # skatt-trekk-oppdrag-proxy
 
-Kan brukes som utgangspunkt for å opprette nye Ktor-backend applikasjoner for Team Motta og Beregne
+Kan brukes som utgangspunkt for å opprette nye Ktor-backend applikasjoner for Team Skatt og Trekk
 
 ## Tilpass repo-et
 
@@ -123,16 +123,16 @@ For dev-gcp:
 
 ```shell script
 kubectl config use-context dev-gcp
-kubectl get pods -n okonomi | grep skatt-trekk-oppdrag-proxy
-kubectl logs -f skatt-trekk-oppdrag-proxy-<POD-ID> --namespace okonomi -c skatt-trekk-oppdrag-proxy
+kubectl get pods -n skatt-og-trekk | grep skatt-trekk-oppdrag-proxy
+kubectl logs -f skatt-trekk-oppdrag-proxy-<POD-ID> --namespace skatt-og-trekk -c skatt-trekk-oppdrag-proxy
 ```
 
 For prod-gcp:
 
 ```shell script
 kubectl config use-context prod-gcp
-kubectl get pods -n okonomi | grep skatt-trekk-oppdrag-proxy
-kubectl logs -f skatt-trekk-oppdrag-proxy-<POD-ID> --namespace okonomi -c skatt-trekk-oppdrag-proxy
+kubectl get pods -n skatt-og-trekk | grep skatt-trekk-oppdrag-proxy
+kubectl logs -f skatt-trekk-oppdrag-proxy-<POD-ID> --namespace skatt-og-trekk -c skatt-trekk-oppdrag-proxy
 ```
 
 ### Alarmer
@@ -146,8 +146,8 @@ Alarmene overvåker metrics som:
 
 Varsler blir sendt til følgende Slack-kanaler:
 
-- Dev-miljø: [#utbetaling-team-beregningsplattform-alerts-dev](https://nav-it.slack.com/archives/C0BHK19HMPD)
-- Prod-miljø: [#utbetaling-team-beregningsplattform-alerts-prod](https://nav-it.slack.com/archives/C0BUZH3FLLF)
+- Dev-miljø: [#utbetaling-team-skatt-og-trekk-alarm-dev](https://nav-it.slack.com/archives/C0C047NGLDB)
+- Prod-miljø: [#utbetaling-team-skatt-og-trekk-alarm-prod](https://nav-it.slack.com/archives/C0C08KX79R8)
 
 ### Grafana
 

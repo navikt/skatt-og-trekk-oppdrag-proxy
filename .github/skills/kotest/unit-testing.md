@@ -11,7 +11,7 @@ internal class PropertiesConfigTest : FunSpec({
         val props = PropertiesConfig.applicationProperties
         props.profile shouldBe Profile.TEST
         props.appName shouldBe "skatt-trekk-oppdrag-proxy"
-        props.namespace shouldBe "okonomi"
+        props.namespace shouldBe "skatt-og-trekk"
         props.isTest shouldBe true
         props.isLocal shouldBe false
         props.isProd shouldBe false

@@ -42,7 +42,7 @@ private fun Application.module() {
 application {
   appName = "my-app"
   appName = ${?NAIS_APP_NAME}
-  namespace = "okonomi"
+  namespace = "skatt-og-trekk"
   namespace = ${?NAIS_NAMESPACE}
 }
 
