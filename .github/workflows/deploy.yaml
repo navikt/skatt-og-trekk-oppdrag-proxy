@@ -71,10 +71,10 @@ jobs:
       pull-requests: write
       deployments: write
     needs: [build-push-image-dev]
-    name: Deploy to dev-gcp
+    name: Deploy to dev-fss
     uses: navikt/skatt-og-trekk-gha-workflows/.github/workflows/nais-deploy.yaml@f6a6b44d0edd525d7cc0614394a4af5a2b7ea04d # ratchet:navikt/skatt-og-trekk-gha-workflows/.github/workflows/nais-deploy.yaml@v1.2.2
     with:
-      cluster: dev-gcp
+      cluster: dev-fss
       resource: .nais/dev/naiserator-dev.yaml
       image: ${{ needs.build-push-image-dev.outputs.image }}
 
@@ -85,9 +85,9 @@ jobs:
 #      pull-requests: write
 #      deployments: write
 #    needs: [build-push-image-prod, deploy-dev]
-#    name: Deploy to prod-gcp
+#    name: Deploy to prod-fss
 #    uses: navikt/skatt-og-trekk-gha-workflows/.github/workflows/nais-deploy.yaml@f6a6b44d0edd525d7cc0614394a4af5a2b7ea04d # ratchet:navikt/skatt-og-trekk-gha-workflows/.github/workflows/nais-deploy.yaml@v1.2.2
 #    with:
-#      cluster: prod-gcp
+#      cluster: prod-fss
 #      resource: .nais/prod/naiserator-prod.yaml
 #      image: ${{ needs.build-push-image-prod.outputs.image }}

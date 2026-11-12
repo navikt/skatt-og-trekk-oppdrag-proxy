@@ -119,18 +119,18 @@ Sensitive meldinger logges til [Team Logs](https://doc.nais.io/observability/log
 
 ### Kubectl
 
-For dev-gcp:
+For dev-fss:
 
 ```shell script
-kubectl config use-context dev-gcp
+kubectl config use-context dev-fss
 kubectl get pods -n skatt-og-trekk | grep skatt-og-trekk-oppdrag-proxy
 kubectl logs -f skatt-og-trekk-oppdrag-proxy-<POD-ID> --namespace skatt-og-trekk -c skatt-og-trekk-oppdrag-proxy
 ```
 
-For prod-gcp:
+For prod-fss:
 
 ```shell script
-kubectl config use-context prod-gcp
+kubectl config use-context prod-fss
 kubectl get pods -n skatt-og-trekk | grep skatt-og-trekk-oppdrag-proxy
 kubectl logs -f skatt-og-trekk-oppdrag-proxy-<POD-ID> --namespace skatt-og-trekk -c skatt-og-trekk-oppdrag-proxy
 ```

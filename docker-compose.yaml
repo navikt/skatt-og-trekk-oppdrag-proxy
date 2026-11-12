@@ -33,7 +33,7 @@ services:
                     "uti": "local-uti-0000000000",
                     "ver": "2.0",
                     "xms_ftd": "local-xms-ftd",
-                    "azp_name": "dev-gcp:skatt-og-trekk:local-consumer"
+                    "azp_name": "dev-fss:skatt-og-trekk:local-consumer"
                   }
                 }
               ]
