@@ -45,6 +45,35 @@ val kotlinxSerializationVersion = "1.12.0"
 val mockOAuth2ServerVersion = "6.1.3"
 val mockkVersion = "1.14.11"
 val swaggerRequestValidatorVersion = "3.0.0"
+val cxfVersion = "4.2.3"
+val glassfishJaxbVersion = "4.0.9"
+val saajVersion = "3.0.6"
+
+val cxfCodegen = configurations.create("cxfCodegen")
+
+val generateSoapClients =
+    listOf("110", "200").map { version ->
+        tasks.register<JavaExec>("generateSkatteopplysningv$version") {
+            val wsdl = layout.projectDirectory.file("src/main/resources/wsdl/Skatteopplysningv$version.wsdl")
+            val output = layout.buildDirectory.dir("generated/sources/soap/skatteopplysningv$version")
+            inputs.file(wsdl)
+            outputs.dir(output)
+            classpath = cxfCodegen
+            mainClass.set("org.apache.cxf.tools.wsdlto.WSDLToJava")
+            args(
+                "-d",
+                output.get().asFile.absolutePath,
+                "-encoding",
+                "UTF-8",
+                "-suppress-generated-date",
+                "-wsdlLocation",
+                "classpath:wsdl/Skatteopplysningv$version.wsdl",
+                "-p",
+                "no.nav.okonomi.skatteopplysningv$version",
+                wsdl.asFile.absolutePath,
+            )
+        }
+    }
 
 dependencies {
 
@@ -66,6 +95,14 @@ dependencies {
     // Serialization
     implementation("io.ktor:ktor-serialization-kotlinx-json-jvm:$ktorVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:$kotlinxSerializationVersion")
+
+    // SOAP
+    implementation("org.apache.cxf:cxf-rt-frontend-jaxws:$cxfVersion")
+    implementation("org.apache.cxf:cxf-rt-transports-http:$cxfVersion")
+    runtimeOnly("org.glassfish.jaxb:jaxb-runtime:$glassfishJaxbVersion")
+    runtimeOnly("com.sun.xml.messaging.saaj:saaj-impl:$saajVersion")
+    add(cxfCodegen.name, "org.apache.cxf:cxf-tools-wsdlto-frontend-jaxws:$cxfVersion")
+    add(cxfCodegen.name, "org.apache.cxf:cxf-tools-wsdlto-databinding-jaxb:$cxfVersion")
 
     // Monitorering
     implementation("io.ktor:ktor-server-metrics-micrometer-jvm:$ktorVersion")
@@ -114,6 +151,7 @@ sourceSets {
     main {
         java {
             srcDirs("${layout.buildDirectory.get()}/generated/src/main/kotlin")
+            srcDirs(generateSoapClients)
         }
     }
 }
@@ -127,7 +165,7 @@ kotlin {
 tasks {
 
     withType<KotlinCompile>().configureEach {
-        dependsOn("ktlintFormat")
+        dependsOn("ktlintFormat", generateSoapClients)
     }
 
     withType<Test>().configureEach {
