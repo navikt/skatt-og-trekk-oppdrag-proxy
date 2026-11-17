@@ -1,0 +1,272 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://okonomi.nav.no/Skatteopplysningv200/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  name="Skatteopplysningv200" targetNamespace="http://okonomi.nav.no/Skatteopplysningv200/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://okonomi.nav.no/Skatteopplysningv200/"
+                   version="1.0">
+            <xs:complexType name="T1Trekkvedtak">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="trekkvedtakId" type="xs:long"/>
+                    <xs:element name="kodeTrekktype" type="tns:KodeVerdi4"/>
+                    <xs:element minOccurs="0" name="inntektsaar" type="xs:int"/>
+                    <xs:element name="tiltakssone" type="xs:boolean"/>
+                    <xs:element name="kilde" type="tns:TrekkvedtakKilde"/>
+                    <xs:element name="tilleggsopplysning" type="tns:Tilleggsopplysning"/>
+                    <xs:element name="kodeTrekkstatus" type="tns:KodeVerdi4"/>
+                    <xs:element name="brukerOverstyr" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="T1Skattekort">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="skattekortIdentifikator" type="xs:long"/>
+                    <xs:element name="typeKilde" type="tns:TypeKilde"/>
+                    <xs:element minOccurs="0" name="aktivt" type="xs:boolean"/>
+                    <xs:element name="inntektsaar" type="xs:int"/>
+                    <xs:element name="kodeTrekkode" type="tns:KodeVerdi8"/>
+                    <xs:element name="tabellIFaggruppe" type="tns:KodeVerdi8"/>
+                    <xs:element name="typeForskuddstrekk" type="tns:Forskuddstrekk"/>
+                    <xs:element name="skattTrekktabell" type="tns:KodeVerdi4"/>
+                    <xs:element name="prosentsats" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="antallMndForTrekk" type="xs:decimal"/>
+                    <xs:element name="frikort" type="xs:boolean"/>
+                    <xs:element name="frikortBelop" type="xs:long"/>
+                    <xs:element name="utstedtDato" type="xs:date"/>
+                    <xs:element minOccurs="0" name="brukerId" type="tns:BrukerId"/>
+                    <xs:element minOccurs="0" name="tidspktReg" type="tns:Timestamp"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="T1SkattetrekkEtterbet">
+                <xs:sequence>
+                    <xs:element name="trekkvedtakId" type="xs:long"/>
+                    <xs:element name="kodeFaggruppe" type="tns:KodeVerdi8"/>
+                    <xs:element name="aarTrekkperFom" type="tns:Aar"/>
+                    <xs:element name="aarTrekkperTom" type="tns:Aar"/>
+                    <xs:element name="typeSatsEtterbet" type="tns:KodeVerdi4"/>
+                    <xs:element name="sats" type="xs:decimal"/>
+                    <xs:element name="feilreg" type="xs:boolean"/>
+                    <xs:element name="brukerId" type="tns:BrukerId"/>
+                    <xs:element name="tidspktReg" type="tns:Timestamp"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Tilbakemelding">
+                <xs:sequence>
+                    <xs:element name="returKode" type="tns:ReturKode"/>
+                    <xs:element name="returMelding" type="tns:Returmelding"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="PingRequest">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="PingResponse">
+                <xs:sequence/>
+            </xs:complexType>
+
+            <xs:complexType name="HentSkattevedtakResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="t1Trekkvedtak" type="tns:T1Trekkvedtak"/>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="maskinelleSkattekort" type="tns:T1Skattekort"/>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="manuelleSkattekort" type="tns:T1Skattekort"/>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="etterbetalingSkattevedtak" type="tns:T1SkattetrekkEtterbet"/>
+                    <xs:element name="tilbakemelding" type="tns:Tilbakemelding"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OmregnSkattRequest">
+                <xsd:sequence>
+                    <xs:element name="trekkvedtakId" type="xs:long"/>
+                    <xs:element name="datoFom" type="xs:date"/>
+                    <xs:element name="brukerId" type="tns:BrukerId"/>
+                </xsd:sequence>
+            </xs:complexType>
+            <xs:complexType name="OppdaterSkattetrekkvedtakRequest">
+                <xs:sequence>
+                    <xs:element name="t1Trekkvedtak" type="tns:T1Trekkvedtak"/>
+                    <xs:element minOccurs="0" maxOccurs="8" name="t1Skattekort" type="tns:T1Skattekort"/>
+                    <xs:element name="offnr" type="tns:Debitor"/>
+                    <xs:element name="brukerId" type="tns:BrukerId"/>
+                    <xs:element name="antallIBruk" type="xs:int"/>
+                    <xs:element name="trekkvedtakAngitt" type="tns:KodeVerdi1" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="LagreEtterbetalingTidligereAarRequest">
+                <xsd:sequence>
+                    <xs:element name="etterbetalingSkattevedtak" type="tns:T1SkattetrekkEtterbet"/>
+                </xsd:sequence>
+            </xs:complexType>
+
+            <xs:simpleType name="Timestamp">
+                <xsd:restriction base="xs:string"><xs:maxLength value="26"/></xsd:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="Aar">
+                <xsd:restriction base="xs:string"><xs:maxLength value="4"/></xsd:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="Debitor">
+                <xsd:restriction base="xs:string"><xs:maxLength value="11"/></xsd:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="BrukerId">
+                <xsd:restriction base="xs:string"><xs:maxLength value="8"/></xsd:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="KodeVerdi4">
+                <xsd:restriction base="xs:string"><xs:maxLength value="8"/></xsd:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="KodeVerdi8">
+                <xsd:restriction base="xs:string"><xs:maxLength value="8"/></xsd:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="ReturKode">
+                <xsd:restriction base="xs:string"><xs:maxLength value="2"/></xsd:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="TrekkvedtakKilde">
+                <xsd:restriction base="xs:string"><xs:maxLength value="11"/></xsd:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="Tilleggsopplysning">
+                <xsd:restriction base="xs:string"><xs:maxLength value="50"/></xsd:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="Forskuddstrekk">
+                <xsd:restriction base="xs:string"><xs:maxLength value="20"/></xsd:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="Returmelding">
+                <xsd:restriction base="xs:string"><xs:maxLength value="200"/></xsd:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="KodeVerdi1">
+                <xsd:restriction base="xs:string"><xs:maxLength value="1"/></xsd:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="TypeKilde">
+                <xsd:restriction base="xs:string">
+                    <xs:enumeration value="MASKIN"/>
+                    <xs:enumeration value="MANUEL"/>
+                </xsd:restriction>
+            </xs:simpleType>
+
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="pingRequest">
+        <wsdl:part type="tns:PingRequest" name="ping"/>
+    </wsdl:message>
+    <wsdl:message name="pingResponse">
+        <wsdl:part type="tns:PingResponse" name="pingResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="hentSkattevedtakRequest">
+        <wsdl:part type="tns:Debitor" name="debitor"/>
+    </wsdl:message>
+    <wsdl:message name="hentSkattevedtakResponse">
+        <wsdl:part type="tns:HentSkattevedtakResponse" name="hentSkattevedtakResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="hentHistoriskeSkattevedtakRequest">
+        <wsdl:part type="tns:Debitor" name="debitor"/>
+    </wsdl:message>
+    <wsdl:message name="hentHistoriskeSkattevedtakResponse">
+        <wsdl:part type="tns:HentSkattevedtakResponse" name="hentSkattevedtakResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="omregnSkattRequest">
+        <wsdl:part type="tns:OmregnSkattRequest" name="omregnSkattRequest"/>
+    </wsdl:message>
+    <wsdl:message name="omregnSkattResponse">
+        <wsdl:part type="tns:Tilbakemelding" name="tilbakemelding"/>
+    </wsdl:message>
+
+    <wsdl:message name="oppdaterSkattetrekkvedtakRequest">
+        <wsdl:part type="tns:OppdaterSkattetrekkvedtakRequest" name="oppdaterSkattetrekkvedtakRequest"/>
+    </wsdl:message>
+    <wsdl:message name="oppdaterSkattetrekkvedtakResponse">
+        <wsdl:part type="tns:Tilbakemelding" name="tilbakemelding"/>
+    </wsdl:message>
+
+    <wsdl:message name="lagreEtterbetalingTidligereAarRequest">
+        <wsdl:part type="tns:LagreEtterbetalingTidligereAarRequest" name="lagreEtterbetalingTidligereAarRequest"/>
+    </wsdl:message>
+    <wsdl:message name="lagreEtterbetalingTidligereAarResponse">
+        <wsdl:part type="tns:Tilbakemelding" name="tilbakemelding"/>
+    </wsdl:message>
+
+    <wsdl:portType name="Skatteopplysningv200Port">
+        <wsdl:operation name="ping">
+            <wsdl:input message="tns:pingRequest" name="pingRequest"/>
+            <wsdl:output message="tns:pingResponse" name="pingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="hentSkattevedtak">
+            <wsdl:input message="tns:hentSkattevedtakRequest" name="hentSkattevedtakRequest"/>
+            <wsdl:output message="tns:hentSkattevedtakResponse" name="hentSkattevedtakResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="hentHistoriskeSkattevedtak">
+            <wsdl:input message="tns:hentHistoriskeSkattevedtakRequest" name="hentHistoriskeSkattevedtakRequest"/>
+            <wsdl:output message="tns:hentHistoriskeSkattevedtakResponse" name="hentHistoriskeSkattevedtakResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="oppdatereSkattetrekkvedtak">
+            <wsdl:input message="tns:oppdaterSkattetrekkvedtakRequest" name="oppdaterSkattetrekkvedtakRequest"/>
+            <wsdl:output message="tns:oppdaterSkattetrekkvedtakResponse" name="oppdaterSkattetrekkvedtakResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="omregnSkatt">
+            <wsdl:input message="tns:omregnSkattRequest" name="omregnSkattRequest"/>
+            <wsdl:output message="tns:omregnSkattResponse" name="omregnSkattResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="lagreEtterbetalingTidligereAar">
+            <wsdl:input message="tns:lagreEtterbetalingTidligereAarRequest" name="lagreEtterbetalingTidligereAarRequest"/>
+            <wsdl:output message="tns:lagreEtterbetalingTidligereAarResponse" name="lagreEtterbetalingTidligereAarResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="Skatteopplysningv200Binding" type="tns:Skatteopplysningv200Port">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="ping">
+            <soap:operation soapAction="http://okonomi.nav.no/Skatteopplysningv200/ping"/>
+            <wsdl:input name="pingRequest">
+                <soap:body use="literal" namespace="http://okonomi.nav.no/Skatteopplysningv200/"/>
+            </wsdl:input>
+            <wsdl:output name="pingResponse">
+                <soap:body use="literal" namespace="http://okonomi.nav.no/Skatteopplysningv200/"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="hentSkattevedtak">
+            <soap:operation soapAction="http://okonomi.nav.no/Skatteopplysningv200/hentSkattevedtak"/>
+            <wsdl:input name="hentSkattevedtakRequest">
+                <soap:body use="literal" namespace="http://okonomi.nav.no/Skatteopplysningv200/"/>
+            </wsdl:input>
+            <wsdl:output name="hentSkattevedtakResponse">
+                <soap:body use="literal" namespace="http://okonomi.nav.no/Skatteopplysningv200/"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="hentHistoriskeSkattevedtak">
+            <soap:operation soapAction="http://okonomi.nav.no/Skatteopplysningv200/hentHistoriskeSkattevedtak"/>
+            <wsdl:input name="hentHistoriskeSkattevedtakRequest">
+                <soap:body use="literal" namespace="http://okonomi.nav.no/Skatteopplysningv200/"/>
+            </wsdl:input>
+            <wsdl:output name="hentHistoriskeSkattevedtakResponse">
+                <soap:body use="literal" namespace="http://okonomi.nav.no/Skatteopplysningv200/"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="oppdatereSkattetrekkvedtak">
+            <soap:operation soapAction="http://okonomi.nav.no/Skatteopplysningv200/oppdaterSkattetrekkvedtak"/>
+            <wsdl:input name="oppdaterSkattetrekkvedtakRequest">
+                <soap:body use="literal" namespace="http://okonomi.nav.no/Skatteopplysningv200/"/>
+            </wsdl:input>
+            <wsdl:output name="oppdaterSkattetrekkvedtakResponse">
+                <soap:body use="literal" namespace="http://okonomi.nav.no/Skatteopplysningv200/"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="omregnSkatt">
+            <soap:operation soapAction="http://okonomi.nav.no/Skatteopplysningv200/omregnSkatt"/>
+            <wsdl:input name="omregnSkattRequest">
+                <soap:body use="literal" namespace="http://okonomi.nav.no/Skatteopplysningv200/"/>
+            </wsdl:input>
+            <wsdl:output name="omregnSkattResponse">
+                <soap:body use="literal" namespace="http://okonomi.nav.no/Skatteopplysningv200/"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="lagreEtterbetalingTidligereAar">
+            <soap:operation soapAction="http://okonomi.nav.no/Skatteopplysningv200/lagreEtterbetalingTidligereAar"/>
+            <wsdl:input name="lagreEtterbetalingTidligereAarRequest">
+                <soap:body use="literal" namespace="http://okonomi.nav.no/Skatteopplysningv200/"/>
+            </wsdl:input>
+            <wsdl:output name="lagreEtterbetalingTidligereAarResponse">
+                <soap:body use="literal" namespace="http://okonomi.nav.no/Skatteopplysningv200/"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Skatteopplysningv200">
+        <wsdl:port binding="tns:Skatteopplysningv200Binding" name="Skatteopplysning2">
+            <soap:address location="http://okonomi.nav.no/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

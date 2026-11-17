@@ -29,6 +29,10 @@ object PropertiesConfig {
         config.property(AZUREAD_CONF).getAs<AzureAdProperties>()
     }
 
+    val soapProperties by lazy {
+        config.property("soap").getAs<SoapProperties>()
+    }
+
     @Serializable
     data class ApplicationProperties(
         val profile: Profile,
@@ -45,6 +49,20 @@ object PropertiesConfig {
         val clientId: String,
         val wellKnownUrl: String,
     )
+
+    @Serializable
+    data class SoapProperties(
+        val skatteopplysningV110HentEndpointUrl: String,
+        val skatteopplysningV110LagreEndpointUrl: String,
+        val skatteopplysningV200EndpointUrl: String,
+        val connectionTimeoutMs: Long = 10_000,
+        val receiveTimeoutMs: Long = 60_000,
+    ) {
+        init {
+            require(connectionTimeoutMs > 0) { "connectionTimeoutMs must be positive" }
+            require(receiveTimeoutMs > 0) { "receiveTimeoutMs must be positive" }
+        }
+    }
 }
 
 fun ApplicationConfig.loadEnv(): ApplicationConfig {
